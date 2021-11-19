@@ -15,8 +15,26 @@ export class Temperature {
   fromObject() {}
 
   /** @property {string} */
-  scale = TEMPERATURE_SCALES.CELSIUS;
+  scale_ = TEMPERATURE_SCALES.CELSIUS;
 
   /** @property {number} */
-  value = 0;
+  value_ = 0;
+
+  /** @return {string} */
+  getScale() {}
+
+  /** @param {string} scale */
+  setScale(scale) {
+    this.scale_ = scale;
+    return this;
+  }
+
+  /** @return {number} */
+  getValue() {}
+
+  /** @param {number} value */
+  setValue(value) {
+    this.value_ = value;
+    return this;
+  }
 }
