@@ -1,4 +1,5 @@
 import React from "react";
+import { Temperature } from "../data-types/Temperature";
 import { convertFrom } from "../util/conversions/temperatures";
 import { scaleToReadableUnit } from "../util/translators/ScaleToReadableUnit";
 
@@ -7,12 +8,15 @@ export function TemperatureInput({
   temperature,
   updateTemperature,
 }) {
-  const { scale: currentScale, value: currentValue } = temperature;
+  const currentTemperature = Temperature.fromObject(temperature);
 
   const displayValue =
-    currentScale === displayScale
-      ? currentValue
-      : convertFrom(currentScale, currentValue);
+    currentTemperature.getScale() === displayScale
+      ? currentTemperature.getValue()
+      : convertFrom(
+          currentTemperature.getScale(),
+          currentTemperature.getValue()
+        );
 
   return (
     <fieldset>
