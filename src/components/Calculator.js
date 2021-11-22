@@ -10,11 +10,13 @@ export function Calculator() {
     [VALUE_KEY]: 23,
   });
 
+  /**
+   * @param {string} scale
+   * @param {object} e
+   */
   function handleChange(scale, e) {
     updateTemperature({ scale, value: e.target.value });
   }
-
-  console.log(temperature);
 
   return (
     <>
